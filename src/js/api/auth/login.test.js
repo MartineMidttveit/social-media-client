@@ -31,17 +31,16 @@ describe('login function', () => {
 
     const email = 'user@example.com';
     const password = 'password123';
-
     const profile = await login(email, password);
 
     expect(fetch).toHaveBeenCalledWith('mockedApiPath/social/auth/login', {
       method: 'post',
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({email, password}),
       headers: { 'Content-Type': 'application/json' },
     });
     expect(storage.save).toHaveBeenCalledTimes(2);
     expect(storage.save).toHaveBeenCalledWith('token', 'mockedToken');
-    expect(storage.save).toHaveBeenCalledWith('profile', { user: { id: '1', name: 'John Doe' } });
-    expect(profile).toEqual({ user: { id: '1', name: 'John Doe' } });
+    expect(storage.save).toHaveBeenCalledWith('profile', {user: {id: '1', name: 'John Doe'}});
+    expect(profile).toEqual({user: {id: '1', name: 'John Doe'}});
   });
 });
