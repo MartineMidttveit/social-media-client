@@ -9,8 +9,8 @@ describe("Logout and clearing browser storage", () => {
     cy.wait(700);
 
     cy.get("#loginForm").within(() => {
-      cy.get('input[name="email"]').type("julius1234@noroff.no");
-      cy.get('input[name="password"]').type("julius123");
+      cy.get('input[name="email"]').type(Cypress.env("email"));
+      cy.get('input[name="password"]').type(Cypress.env("password"));
       cy.get('button[type="submit"]').click();
     });
     cy.wait(1500);
@@ -26,8 +26,8 @@ describe("Logout and clearing browser storage", () => {
     cy.wait(700);
 
     cy.get("#loginForm").within(() => {
-      cy.get('input[name="email"]').type("julius1234@noroff.no");
-      cy.get('input[name="password"]').type("julius123");
+      cy.get('input[name="email"]').type(Cypress.env("email"));
+      cy.get('input[name="password"]').type(Cypress.env("password"));
       cy.get('button[type="submit"]').click();
     });
     cy.wait(1500);
